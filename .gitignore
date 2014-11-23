@@ -1,0 +1,10 @@
+node_modules
+client/bower_components
+public
+.tmp
+.idea
+*.iml
+dist
+/server/config/local.env.js
+atlassian-ide-plugin.xml
+.DS_Store

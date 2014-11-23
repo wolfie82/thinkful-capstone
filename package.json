@@ -1,0 +1,29 @@
+{
+  "name": "vox-chef-core",
+  "version": "0.0.1",
+  "description": "Server API & Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.ipcove.com:7999/vc/core.git"
+  },
+  "author": "IP Cove LLC",
+  "license": "IP Cove LLC",
+  "dependencies": {
+    "good": "^4.0.0",
+    "good-console": "^2.0.1",
+    "hapi": "^7.5.2",
+    "lodash": "^2.4.1",
+    "mongoose": "^3.8.19",
+    "require-directory": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "git://github.com/gulpjs/gulp.git#a7a20403190e920639c6f02c38d6269b6208fe59",
+    "gulp-eslint": "^0.2.0",
+    "gulp-load-plugins": "^0.7.1",
+    "wiredep": "^2.1.0"
+  }
+}
