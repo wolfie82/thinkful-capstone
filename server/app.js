@@ -19,6 +19,19 @@ var api = requireDirectory(module, './api/', {include: /controller\.js$/});
 require('./config/routes')(api, server);
 
 // Add static routes / assets
+server.route({
+  method: 'GET',
+  path: '/{param*}',
+  handler: {
+    directory: {
+      path: 'dist/public',
+      listing: false,
+      index: true,
+      showHidden: false,
+      redirectToSlash: true
+    }
+  }
+});
 
 // Start
 server.start();
