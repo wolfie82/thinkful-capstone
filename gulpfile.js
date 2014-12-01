@@ -1,13 +1,18 @@
 'use strict';
 
+// Gulp plugins
 var gulp = require('gulp');
-var plugin = require('gulp-load-plugins')();
+var gulpif = require('gulp-if');
+var gulpinject = require('gulp-inject');
+var gulpjshint = require('gulp-jshint');
 
 var wiredep = require('wiredep').stream;
 var del = require('del');
 var spawn = require('child_process').spawn;
 var path = require('path');
+
 var node;
+var env = process.env.NODE_ENV || 'development';
 
 /*
 
@@ -42,12 +47,11 @@ var config = {
  Tasks
 
 */
-
 // client
 gulp.task('lint:server', function () {
   return gulp.src(config.server.appFiles)
-    .pipe(plugin.jshint())
-    .pipe(plugin.jshint.reporter('jshint-stylish'));
+    .pipe(gulpjshint())
+    .pipe(gulpjshint.reporter('jshint-stylish'));
 });
 
 gulp.task('lint:client', function () {
@@ -57,6 +61,7 @@ gulp.task('lint:client', function () {
 });
 
 gulp.task('client:compile:less', function () {
+  console.log(env);
   gulp.src(config.client.styles.less)
     .pipe(plugin.less())
     .pipe(gulp.dest('.tmp'));
@@ -66,24 +71,30 @@ gulp.task('client:inject:css', function () {
   var target = gulp.src(config.client.index);
   var sources = gulp.src(config.client.styles.css, {read: false});
 
-  return target.pipe(plugin.inject(sources, {
+  return target.pipe(gulpinject(sources, {
     transform: function(filePath) {
       filePath = filePath.replace('/client/', '');
       return '<link rel="stylesheet" href="' + filePath + '">';
-
     }
   }))
-    .pipe(gulp.dest('dist/public'));
+    .pipe(gulpif(env === 'development', gulp.dest('.tmp')));
 });
 
 gulp.task('wiredep', function () {
-  gulp.src(config.client.index)
+  return gulp.src(config.client.index)
     .pipe(wiredep())
     .pipe(gulp.dest('.tmp'));
 });
 
+gulp.task('client:autoprefixer', function () {
+  return gulp.src('.tmp/app.css')
+    .pipe(plugin.autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulpif(env === 'development', gulp.dest('.tmp')));
 
-
+});
 
 // server
 gulp.task('watch:server', function () {
@@ -127,17 +138,9 @@ gulp.task('clean:external', function () {
   );
 });
 
-gulp.task('clean', gulp.series('clean:build'));
 gulp.task('clean:all', gulp.parallel('clean:external', 'clean:build'));
 
-
-
-
-
-
-
-
-gulp.task('server:dev', gulp.parallel('lint:server', 'watch:server', 'spawn:server'));
+gulp.task('server:dev', gulp.parallel('clean:build'));
 
 gulp.task('default', gulp.series('server:dev'));
 
