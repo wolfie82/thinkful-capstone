@@ -9,16 +9,13 @@ module.exports = function(grunt) {
   grunt.registerTask('default', function () {
     grunt.task.run([
       'clean:dev',
-      'env:all',
+      'env:local',
       'injector:less',
-      'concurrent:server',
-      'injector',
+      'less',
+      'injector:js',
+      'injector:vendorCss',
       'wiredep',
-      'autoprefixer',
-      'express:dev',
-      'wait',
-      'open',
-      'watch'
+      'autoprefixer'
     ]);
   })
 };

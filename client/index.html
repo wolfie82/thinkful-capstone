@@ -7,11 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/simple-line-icons/css/simple-line-icons.css" />
   <!-- endbower -->
 
-  <!-- inject:css -->
-  <!-- endinject -->=
-  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <!-- injector:vendor:css -->
+  <link rel="stylesheet" href="assets/styles/font.css" />
+  <!-- endinjector -->
+  <link rel="stylesheet" href="assets/styles/app.css" />
 
 </head>
 <body ng-controller="AppCtrl">
@@ -19,31 +24,70 @@
   <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
 
   <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/jsplumb/dist/js/dom.jsPlumb-1.7.2.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/ocLazyLoad/dist/ocLazyLoad.min.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+  <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
   <!-- endbower -->
 
-  <!-- inject:js -->
-  <!-- endinject -->
-
-  <!-- App -->
-  <script src="js/app.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/config.lazyload.js"></script>
-  <script src="js/config.router.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/services/ui-load.js"></script>
-  <script src="js/filters/fromNow.js"></script>
-  <script src="js/directives/setnganimate.js"></script>
-  <script src="js/directives/ui-butterbar.js"></script>
-  <script src="js/directives/ui-focus.js"></script>
-  <script src="js/directives/ui-fullscreen.js"></script>
-  <script src="js/directives/ui-jq.js"></script>
-  <script src="js/directives/ui-module.js"></script>
-  <script src="js/directives/ui-nav.js"></script>
-  <script src="js/directives/ui-scroll.js"></script>
-  <script src="js/directives/ui-shift.js"></script>
-  <script src="js/directives/ui-toggleclass.js"></script>
-  <script src="js/directives/ui-validate.js"></script>
-  <script src="js/controllers/bootstrap.js"></script>
-  <!-- Lazy loading -->
+  <!-- injector:js -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app/calendar/calendar.js"></script>
+  <script src="assets/js/app/contact/contact.js"></script>
+  <script src="assets/js/app/mail/mail-service.js"></script>
+  <script src="assets/js/app/mail/mail.js"></script>
+  <script src="assets/js/app/map/load-google-maps.js"></script>
+  <script src="assets/js/app/map/map.js"></script>
+  <script src="assets/js/app/map/ui-map.js"></script>
+  <script src="assets/js/app/music/ctrl.js"></script>
+  <script src="assets/js/app/note/note.js"></script>
+  <script src="assets/js/app/weather/angular-skycons.js"></script>
+  <script src="assets/js/app/weather/ctrl.js"></script>
+  <script src="assets/js/app/weather/skycons.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/config.lazyload.js"></script>
+  <script src="assets/js/config.router.js"></script>
+  <script src="assets/js/controllers/bootstrap.js"></script>
+  <script src="assets/js/controllers/chart.js"></script>
+  <script src="assets/js/controllers/editor.js"></script>
+  <script src="assets/js/controllers/file-upload.js"></script>
+  <script src="assets/js/controllers/form.js"></script>
+  <script src="assets/js/controllers/grid.js"></script>
+  <script src="assets/js/controllers/imgcrop.js"></script>
+  <script src="assets/js/controllers/select.js"></script>
+  <script src="assets/js/controllers/signin.js"></script>
+  <script src="assets/js/controllers/signup.js"></script>
+  <script src="assets/js/controllers/slider.js"></script>
+  <script src="assets/js/controllers/tab.js"></script>
+  <script src="assets/js/controllers/toaster.js"></script>
+  <script src="assets/js/controllers/tree.js"></script>
+  <script src="assets/js/controllers/vectormap.js"></script>
+  <script src="assets/js/directives/setnganimate.js"></script>
+  <script src="assets/js/directives/ui-butterbar.js"></script>
+  <script src="assets/js/directives/ui-focus.js"></script>
+  <script src="assets/js/directives/ui-fullscreen.js"></script>
+  <script src="assets/js/directives/ui-jq.js"></script>
+  <script src="assets/js/directives/ui-module.js"></script>
+  <script src="assets/js/directives/ui-nav.js"></script>
+  <script src="assets/js/directives/ui-scroll.js"></script>
+  <script src="assets/js/directives/ui-shift.js"></script>
+  <script src="assets/js/directives/ui-toggleclass.js"></script>
+  <script src="assets/js/directives/ui-validate.js"></script>
+  <script src="assets/js/filters/fromNow.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/services/ui-load.js"></script>
+  <!-- endinjector -->
 </body>
 </html>
