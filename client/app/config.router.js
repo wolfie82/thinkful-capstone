@@ -8,16 +8,16 @@ angular.module('app')
     [          '$rootScope', '$state', '$stateParams',
       function ($rootScope,   $state,   $stateParams) {
           $rootScope.$state = $state;
-          $rootScope.$stateParams = $stateParams;        
+          $rootScope.$stateParams = $stateParams;
       }
     ]
   )
   .config(
     [          '$stateProvider', '$urlRouterProvider',
       function ($stateProvider,   $urlRouterProvider) {
-          
+
           $urlRouterProvider
-              .otherwise('/app/dashboard-v1');
+              .otherwise('/app/dashboard-v2');
           $stateProvider
               .state('app', {
                   abstract: true,
@@ -63,7 +63,7 @@ angular.module('app')
               .state('app.ui.widgets', {
                   url: '/widgets',
                   templateUrl: 'tpl/ui_widgets.html'
-              })          
+              })
               .state('app.ui.bootstrap', {
                   url: '/bootstrap',
                   templateUrl: 'tpl/ui_bootstrap.html'
@@ -130,7 +130,7 @@ angular.module('app')
                             'js/app/map/ui-map.js',
                             'js/app/map/map.js'] ).then(
                               function(){
-                                return loadGoogleMaps(); 
+                                return loadGoogleMaps();
                               }
                             );
                       }]
@@ -478,9 +478,9 @@ angular.module('app')
                               {
                                   name: 'angular-skycons',
                                   files: ['js/app/weather/skycons.js',
-                                          'vendor/libs/moment.min.js', 
+                                          'vendor/libs/moment.min.js',
                                           'js/app/weather/angular-skycons.js',
-                                          'js/app/weather/ctrl.js' ] 
+                                          'js/app/weather/ctrl.js' ]
                               }
                           );
                       }]
@@ -494,12 +494,12 @@ angular.module('app')
                       deps: ['$ocLazyLoad',
                         function( $ocLazyLoad ){
                           return $ocLazyLoad.load([
-                            'com.2fdevs.videogular', 
-                            'com.2fdevs.videogular.plugins.controls', 
+                            'com.2fdevs.videogular',
+                            'com.2fdevs.videogular.plugins.controls',
                             'com.2fdevs.videogular.plugins.overlayplay',
                             'com.2fdevs.videogular.plugins.poster',
                             'com.2fdevs.videogular.plugins.buffering',
-                            'js/app/music/ctrl.js', 
+                            'js/app/music/ctrl.js',
                             'js/app/music/theme.css'
                           ]);
                       }]
