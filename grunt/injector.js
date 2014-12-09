@@ -32,9 +32,9 @@ module.exports = {
       endtag: '// endinjector'
     },
     files: {
-      'client/assets/styles/less/app.less': [
+      'client/app/app.less': [
         'client/{app,components}/**/*.less',
-        'client/app/app.less'
+        '!client/app/app.less'
       ]
     }
   },
@@ -50,7 +50,7 @@ module.exports = {
     },
     files: {
       'client/index.html': [
-        'client/assets/vendor/styles/**/*.css',
+        'client/assets/vendor/css/**/*.css',
       ]
     }
   }

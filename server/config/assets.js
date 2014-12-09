@@ -4,10 +4,10 @@ module.exports = function(server) {
   // CSS
   server.route({
     method: 'GET',
-    path: '/assets/styles/{param*}',
+    path: '/assets/css/{param*}',
     handler: {
       directory: {
-        path: ['.tmp/assets/styles', 'client/assets/vendor/styles/css'],
+        path: ['.tmp/assets/css', 'client/vendor/css'],
         listing: false,
         index: false,
         showHidden: false,
@@ -48,7 +48,7 @@ module.exports = function(server) {
   // Images
   server.route({
     method: 'GET',
-    path: '/img/{param*}',
+    path: '/assets/images/{param*}',
     handler: {
       directory: {
         path: 'client/assets/images',
@@ -63,14 +63,28 @@ module.exports = function(server) {
   // Views
   server.route({
     method: 'GET',
-    path: '/tpl/{param*}',
+    path: '/assets/templates/layouts/{param*}',
     handler: {
       directory: {
-        path: 'client/views',
-        listing: false,
-        index: false,
+        path: ['client/app/layouts'],
+        listing: true,
+        index: true,
         showHidden: false,
-        redirectToSlash: true
+        redirectToSlash: false
+      }
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/assets/templates/components/{param*}',
+    handler: {
+      directory: {
+        path: ['client/app/components'],
+        listing: true,
+        index: true,
+        showHidden: false,
+        redirectToSlash: false
       }
     }
   });
@@ -80,7 +94,7 @@ module.exports = function(server) {
     path: '/l10n/{param*}',
     handler: {
       directory: {
-        path: 'client/l10n',
+        path: 'client/app/l10n',
         listing: false,
         index: false,
         showHidden: false,

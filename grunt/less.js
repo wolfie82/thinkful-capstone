@@ -3,7 +3,7 @@ module.exports = {
   },
   server: {
     files: {
-      '.tmp/assets/styles/app.css' : 'client/assets/styles/less/app.less'
+      '.tmp/assets/css/app.css' : 'client/app/app.less'
     }
   }
 }
