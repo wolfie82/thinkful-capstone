@@ -4,7 +4,14 @@
 
   angular
     .module('voxChef', [
-      'ui.router'
+      'ngAnimate',
+      'ngCookies',
+      'ngResource',
+      'ngSanitize',
+      'ngTouch',
+      'ngStorage',
+      'ui.router',
+      'ui.bootstrap',
     ]);
 
 })();

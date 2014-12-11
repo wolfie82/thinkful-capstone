@@ -1,0 +1,12 @@
+<div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
+  <a href class="navbar-brand block m-t">Capstone</a>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation">
+      <div class="text-danger wrapper text-center" ng-show="authError">
+        {{authError}}
+      </div>
+      <textarea>{{ tokenData }}</textarea>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addToken()">Add Token</button>
+    </form>
+  </div>
+</div>

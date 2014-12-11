@@ -27,6 +27,16 @@
       .state('console.dashboard', {
         url: '/dashboard',
         templateUrl: 'assets/templates/components/dashboard/index.tpl.html'
+      })
+
+      // Access
+      .state('access', {
+        url: '/access',
+        template: '<div ui-view class="fade-in-right-big smooth"></div>'
+      })
+      .state('access.signin', {
+        url: '/signin',
+        templateUrl: 'assets/templates/components/auth/signin.tpl.html'
       });
   }
 
